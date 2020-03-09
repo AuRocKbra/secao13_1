@@ -52,7 +52,7 @@ public class Programa {
 		Integer ano = Integer.parseInt(periodo.substring(3));
 		System.out.println("Nome:"+trabalhador.getNome());
 		System.out.println("Departamento:"+trabalhador.getDepartamento());
-		System.out.printf("Valor acumulado de contratos de %d/%d R$ %.2f",mes,ano,trabalhador.valorAcumuladoDeContrato(mes,ano));
+		System.out.printf("Valor acumulado de contratos de %s R$ %.2f",periodo,trabalhador.valorAcumuladoDeContrato(mes,ano));
 		sc.close();
 	}
 
