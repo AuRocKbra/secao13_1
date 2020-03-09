@@ -40,6 +40,9 @@ public class Trabalhador {
 	public void addContrato(Contrato contrato) {
 		this.contrato.add(contrato);
 	}
+	public void removeContrato(Contrato contrato) {
+		this.contrato.remove(contrato);
+	}
 	public Double valorAcumuladoDeContrato(Integer mes, Integer ano) {
 		Double valor=this.getSalariBase();
 		for(Contrato x: contrato) {
