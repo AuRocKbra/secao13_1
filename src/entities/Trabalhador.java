@@ -10,7 +10,7 @@ public class Trabalhador {
 	private String nome;
 	private NivelDoProficional nivelDoProficional;
 	private Departamento departamento;
-	private List <Contrato> contrato;
+	private List <Contrato> contrato = new ArrayList<>();
 	private Double salariBase;
 	public String getNome() {
 		return nome;
@@ -38,20 +38,16 @@ public class Trabalhador {
 		this.salariBase = salariBase;
 	}
 	public void addContrato(Contrato contrato) {
-		if(this.contrato==null) {
-			this.contrato = new ArrayList<>();
-			this.contrato.add(contrato);
-		}
-		else {
-			this.contrato.add(contrato);
-		}
+		this.contrato.add(contrato);
 	}
-	public Double valorAcumuladoDeContrato(Integer mes) {
-		Double valor=0.00;
+	public Double valorAcumuladoDeContrato(Integer mes, Integer ano) {
+		Double valor=this.getSalariBase();
 		for(Contrato x: contrato) {
 			Calendar cal = Calendar.getInstance();
 			cal.setTime(x.getData());
-			if(cal.get(Calendar.MONTH)==mes) {
+			int mesContrato = 1+ cal.get(Calendar.MONTH);
+			int anoContrato = cal.get(Calendar.YEAR);
+			if(mesContrato==mes && anoContrato==ano) {
 				valor+=x.valorTotal();
 			}
 		}

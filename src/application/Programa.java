@@ -24,7 +24,7 @@ public class Programa {
 		trabalhador.setNivelDoProficional(nivel);
 		System.out.print("Informe salário base:");
 		trabalhador.setSalariBase(sc.nextDouble());
-		System.out.println("Informe a quabntidade de contratos:");
+		System.out.println("Informe a quantidade de contratos:");
 		int quantidadeContratos = sc.nextInt();
 		for(int i=0; i<quantidadeContratos;i++) {
 			sc.nextLine();
@@ -46,9 +46,13 @@ public class Programa {
 				e.printStackTrace();
 			}
 		}
-		System.out.print("Informe mês e ano para calculo de valor acumulado:");
-		Integer mes = sc.nextInt();
-		System.out.printf("Valor acumulado de contratos R$ %.2f",trabalhador.valorAcumuladoDeContrato(mes));
+		System.out.print("Informe mês ano para calculo de valor acumulado:");
+		String periodo = sc.next();
+		Integer mes = Integer.parseInt(periodo.substring(0,2));
+		Integer ano = Integer.parseInt(periodo.substring(3));
+		System.out.println("Nome:"+trabalhador.getNome());
+		System.out.println("Departamento:"+trabalhador.getDepartamento());
+		System.out.printf("Valor acumulado de contratos de %d/%d R$ %.2f",mes,ano,trabalhador.valorAcumuladoDeContrato(mes,ano));
 		sc.close();
 	}
 
